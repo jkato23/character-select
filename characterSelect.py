@@ -1,5 +1,4 @@
-characters = ("Yun", "Gouki", "Remy", "Ryu", "Urien", "Q", "Oro", "Necro", "Chun-Li", "Dudley", "Ibuki", "Makoto", "Elena", "Sean", "Twelve", "Hugo", "Alex", "Yang", "Ken", "Gill")
-supers = {
+characterInfo = {
     "Yun": ("", "I Youhou", "II Sourai Rengeki", "III Genei Jin"),
     "Gouki": ("", "I Messatsu Gou Hadou", "II Messatsu Gou Shouryuu", "III Messatsu Gou Rasen"),
     "Remy": ("", "I Hunnu no Supernova", "II Vierge ni Ansoku O", "III Shoushin no Nocturne"),
@@ -22,24 +21,23 @@ supers = {
     "Gill": ("", "I Meteor Strike", "II Seraphic Wing", "III Ressurection")
 }
 
-def chooseCharacter():
+def chooseCharacter(characterInfo):
     global charSelect
-    selectScreen = " ".join(str(i) for i in characters)
-    print(selectScreen + "\n")
+    print(" ".join(str(key) for key in characterInfo.keys()),"\n")  
     charSelect = input("Which character do you choose? ")
     charSelect = charSelect.capitalize()
-    if (charSelect in characters):
+    if (charSelect in characterInfo[charSelect]):
         if (charSelect == "Gill"):
             print("\n" "Gill is not a selectable character. Please choose another character." "\n")
-            chooseCharacter()
+            chooseCharacter(characterInfo)
         else:
             print("\n" "Your character is " + charSelect + "." "\n")
     else:
         print("\n" "That is not a valid character selection. Please choose again." "\n")
-        chooseCharacter()
+        chooseCharacter(characterInfo)
 
 def chooseSuper(charSelect):
-    for value in supers[charSelect][1:4]:
+    for value in characterInfo[charSelect][1:4]:
         print(value)
     try:
         superSelect = int(input("\n" "Which super art do you choose? Enter a number between 1 and 3: "))
@@ -64,5 +62,5 @@ def chooseSuper(charSelect):
         print("\n" "You entered something that was not a number. Please choose again." "\n")
         chooseSuper(charSelect)
 
-chooseCharacter()
+chooseCharacter(characterInfo)
 chooseSuper(charSelect)
