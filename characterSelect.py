@@ -26,7 +26,7 @@ def chooseCharacter(characterInfo):
     print(" ".join(str(key) for key in characterInfo.keys()),"\n")  
     charSelect = input("Which character do you choose? ")
     charSelect = charSelect.capitalize()
-    if (charSelect in characterInfo[charSelect]):
+    if (charSelect in characterInfo.keys()):
         if (charSelect == "Gill"):
             print("\n" "Gill is not a selectable character. Please choose another character." "\n")
             chooseCharacter(characterInfo)
@@ -45,7 +45,7 @@ def chooseSuper(charSelect):
             print("\n" "That is not a valid super art selection. Please choose again." "\n")
             chooseSuper(charSelect)
         else:
-            print("\n" + "Your character is " + charSelect + " and your super art is " + (supers[charSelect][superSelect] + "."))
+            print("\n" + "Your character is " + charSelect + " and your super art is " + (characterInfo[charSelect][superSelect] + "."))
             if (charSelect == "Gouki"):
                 if (superSelect == 1):
                     print("You also have access to the super arts Tenma Gou Zankuu, Shun Goku Satsu, and Kongou Kokuretsu Zan.")
