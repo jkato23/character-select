@@ -57,7 +57,7 @@ def chooseSuper(charSelect):
                 if (superSelect == 2):
                     print("You also have access to the super art Yagyou Oodama.")
                 if (superSelect == 3):
-                    print("You also have access to the suepr art Tengu Midare Ishi.")
+                    print("You also have access to the super art Tengu Midare Ishi.")
     except ValueError:
         print("\n" "You entered something that was not a number. Please choose again." "\n")
         chooseSuper(charSelect)
